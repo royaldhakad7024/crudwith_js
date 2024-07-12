@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crud Operation</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <script>
+        $(document).ready(function(){
+            $("input#productCode, input#product, input#qty, input#perPrice").focus(function(){
+                $(this).css("background-color", "rgb(11 153 169)");
+            });
+            $("input#productCode, input#product, input#qty, input#perPrice").blur(function(){
+                $(this).css("background-color", "rgb(171 169 169)");
+            });
+            $("h1").click(function(){
+                $("#table").slideToggle(3000);
+            });
+        });
+    </script>
+    <h1>Crud Operation</h1>
+    <div id="table">
+        <table>
+            <tr>
+                <td>
+                    <form id="Form" autocomplete="off" onsubmit="onFormSubmit();">
+                        <div>
+                            <label for="productCode">Product Code</label>
+                            <input type="text" name="productCode" id="productCode" required>
+                            <p id="err_productCode"></p>
+                        </div>
+                        <div>
+                            <label for="product">Product Name</label>
+                            <input type="text" name="product" id="product" required>
+                            <p id="err_product"></p>
+                        </div>
+                        <div>
+                            <label for="qty">Qty</label>
+                            <input type="number" name="qty" id="qty" required>
+                            <p id="err_qty"></p>
+                        </div>
+                        <div>
+                            <label for="perPrice">Price</label>
+                            <input type="number" name="perPrice" id="perPrice" required>
+                            <p id="err_perPrice"></p>
+                        </div>
+
+                        <div class="form_action--button">
+                            <input type="submit" value="Submit">
+                            <input type="reset" value="Reset">
+                        </div>
+                    </form>
+                </td>
+                <td>
+                    <table class="list" id="storeList">
+                        <thead>
+                            <tr>
+                                <th>Product Code</th>
+                                <th>Product Name</th>
+                                <th>Qty</th>
+                                <th>Price</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Your table rows will go here -->
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
